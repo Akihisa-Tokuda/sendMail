@@ -1,0 +1,19 @@
+1. API keyの作成
+https://app.sendgrid.com/settings/api_keys
+Create API keysボタン（右上）クリック
+Full AccessのAPI key作成
+
+API keyが画面に表示されるので、コピーする。
+
+
+2. configファイルの編集
+config.tomlの設定を任意に変更する。
+
+sedGridApiKey = ""　<- 1.で作成したAPI key
+targetDir = "../test/" <- 確認するディレクトリのパス
+mailAddresses = ["XXXX@gmail.com","BBB@gmail.com"] <- 宛先アドレス(複数指定化)
+fromMailAdress = "送信元のアドレス" <- 送信先のアドレス
+subject = "メール件名"
+text = "メールテキスト"
+
+3. main.exeをダブルクリックで実行
