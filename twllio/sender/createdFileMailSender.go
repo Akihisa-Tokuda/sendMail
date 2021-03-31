@@ -103,7 +103,7 @@ func handleFileCreated(path string) {
 		return
 	}
 
-	log.Printf("file type is matched. Try to send mail :%v", filepath.Ext(path))
+	log.Printf("file type is matched. Try to send mail :%v", path)
 
 	message := mail.NewV3Mail()
 	from := mail.NewEmail("", viper.GetString("fromMailAdress"))
