@@ -1,5 +1,5 @@
 sedGridApiKey = ""
-targetDir = "../test/"
+# targetDir = "c:/"
 mailAddresses = ["XXXX@gmail.com","BBB@gmail.com"]
 fromMailAdress = "送信元のアドレス"
 subject = "メール件名"

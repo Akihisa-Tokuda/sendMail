@@ -22,11 +22,12 @@ import (
 
 func initConfig() {
 	exe, _ := os.Executable()
-
-	viper.SetDefault("targetDir", "./")
+	dir := filepath.Dir(exe)
+	log.Print(dir)
+	viper.SetDefault("targetDir", dir)
 	viper.SetDefault("fileType", "png")
 	viper.SetConfigType("toml")
-	viper.AddConfigPath(filepath.Dir(exe))
+	viper.AddConfigPath(dir)
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Panicf("設定ファイル読み込みエラー: %s \n", err)
@@ -34,7 +35,9 @@ func initConfig() {
 }
 
 func StartObserve() {
-	logfile, err := os.OpenFile("./sendMail.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	exe, _ := os.Executable()
+	dir := filepath.Dir(exe)
+	logfile, err := os.OpenFile(dir+"/sendMail.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		panic("cannnot open log:" + err.Error())
 	}
