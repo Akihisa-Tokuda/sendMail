@@ -42,9 +42,9 @@ func (e *exarvice) Stop(s service.Service) error {
 
 func main() {
 	svcConfig := &service.Config{
-		Name:        "Exarvice",
-		DisplayName: "Exarvice (Go Service Example)",
-		Description: "This is an example Go service.",
+		Name:        "CreatedFileSenderViaMail",
+		DisplayName: "Created File Sender via Email",
+		Description: "指定フォルダにファイルが作成されたらメール送信するサービス",
 	}
 
 	// Create Exarvice service
