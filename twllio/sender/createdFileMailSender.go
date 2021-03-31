@@ -21,10 +21,12 @@ import (
 )
 
 func initConfig() {
+	exe, _ := os.Executable()
+
 	viper.SetDefault("targetDir", "./")
 	viper.SetDefault("fileType", "png")
 	viper.SetConfigType("toml")
-	viper.AddConfigPath(".")
+	viper.AddConfigPath(filepath.Dir(exe))
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Panicf("設定ファイル読み込みエラー: %s \n", err)

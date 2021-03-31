@@ -17,7 +17,7 @@ type exarvice struct {
 
 func (e *exarvice) run() error {
 
-	logger.Info("Exarvice Start !!!")
+	logger.Info("Service Started")
 
 	sender.StartObserve()
 	return nil
