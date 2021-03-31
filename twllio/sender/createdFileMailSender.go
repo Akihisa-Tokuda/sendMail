@@ -1,7 +1,6 @@
 package sender
 
 import (
-	"fmt"
 	"io"
 
 	log "github.com/sirupsen/logrus"
@@ -104,6 +103,8 @@ func handleFileCreated(path string) {
 		return
 	}
 
+	log.Printf("file type is matched. Try to send mail :%v", filepath.Ext(path))
+
 	message := mail.NewV3Mail()
 	from := mail.NewEmail("", viper.GetString("fromMailAdress"))
 	message.SetFrom(from)
@@ -137,8 +138,8 @@ func handleFileCreated(path string) {
 	if err != nil {
 		log.Println(err)
 	} else {
-		fmt.Println(response.StatusCode)
-		fmt.Println(response.Body)
-		fmt.Println(response.Headers)
+		log.Println(response.StatusCode)
+		log.Println(response.Body)
+		log.Println(response.Headers)
 	}
 }
